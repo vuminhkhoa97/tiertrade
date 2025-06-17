@@ -1,0 +1,100 @@
+<svg width="300" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background: A dark, digital-themed backdrop for the logo -->
+    <rect x="0" y="0" width="300" height="200" fill="#1A202C"/>
+
+    <!-- Pixelated Block/NFT Icon: Represents a digital asset or blockchain block -->
+    <g transform="translate(80, 20)">
+        <!-- Base layers of the cube/block, creating a tiered effect for "Tier" -->
+        <rect x="30" y="30" width="60" height="30" fill="#38B2AC"/> <!-- Bottom layer (teal) -->
+        <rect x="24" y="24" width="60" height="30" fill="#38B2AC"/> <!-- Middle layer (teal) -->
+        <rect x="18" y="18" width="60" height="30" fill="#38B2AC"/> <!-- Top layer (teal) -->
+
+        <!-- Outline/depth for the cube, using a slightly darker shade to enhance pixelated 3D effect -->
+        <rect x="18" y="18" width="6" height="6" fill="#2C5282"/> <!-- Top-left corner pixel (dark blue) -->
+        <rect x="72" y="18" width="6" height="6" fill="#2C5282"/> <!-- Top-right corner pixel (dark blue) -->
+        <rect x="78" y="24" width="6" height="6" fill="#2C5282"/>
+        <rect x="84" y="30" width="6" height="6" fill="#2C5282"/>
+        <rect x="18" y="42" width="6" height="6" fill="#2C5282"/>
+        <rect x="24" y="48" width="6" height="6" fill="#2C5282"/>
+        <rect x="30" y="54" width="6" height="6" fill="#2C5282"/>
+
+        <!-- Arrows for Trade: Pixelated arrows indicating exchange or transaction -->
+        <!-- Arrow 1: Pointing up-right, suggesting buying or value increase -->
+        <rect x="96" y="6" width="6" height="6" fill="#F6AD55"/> <!-- Orange/Yellow -->
+        <rect x="102" y="6" width="6" height="6" fill="#F6AD55"/>
+        <rect x="108" y="6" width="6" height="6" fill="#F6AD55"/>
+        <rect x="102" y="12" width="6" height="6" fill="#F6AD55"/>
+        <rect x="108" y="12" width="6" height="6" fill="#F6AD55"/>
+        <rect x="108" y="18" width="6" height="6" fill="#F6AD55"/>
+
+        <!-- Arrow 2: Pointing down-left, suggesting selling or value transfer -->
+        <rect x="0" y="60" width="6" height="6" fill="#F6AD55"/> <!-- Orange/Yellow -->
+        <rect x="6" y="60" width="6" height="6" fill="#F6AD55"/>
+        <rect x="12" y="60" width="6" height="6" fill="#F6AD55"/>
+        <rect x="6" y="66" width="6" height="6" fill="#F6AD55"/>
+        <rect x="12" y="66" width="6" height="6" fill="#F6AD55"/>
+        <rect x="12" y="72" width="6" height="6" fill="#F6AD55"/>
+    </g>
+
+    <!-- "TierTrade" Text: Constructed from individual pixel rectangles for a consistent pixelated look -->
+    <g transform="translate(30, 120)">
+        <!-- T (for Tier) -->
+        <rect x="0" y="0" width="18" height="6" fill="white"/>
+        <rect x="6" y="6" width="6" height="30" fill="white"/>
+
+        <!-- i -->
+        <rect x="24" y="0" width="6" height="6" fill="white"/> <!-- dot -->
+        <rect x="24" y="12" width="6" height="24" fill="white"/>
+
+        <!-- e -->
+        <rect x="36" y="0" width="24" height="6" fill="white"/>
+        <rect x="36" y="6" width="6" height="6" fill="white"/>
+        <rect x="36" y="12" width="18" height="6" fill="white"/>
+        <rect x="36" y="18" width="6" height="6" fill="white"/>
+        <rect x="36" y="24" width="24" height="6" fill="white"/>
+
+        <!-- r -->
+        <rect x="66" y="0" width="6" height="30" fill="white"/>
+        <rect x="72" y="0" width="12" height="6" fill="white"/>
+        <rect x="72" y="6" width="6" height="6" fill="white"/>
+        <rect x="78" y="12" width="6" height="6" fill="white"/>
+        <rect x="72" y="18" width="6" height="6" fill="white"/>
+        <rect x="78" y="24" width="6" height="6" fill="white"/>
+
+        <!-- Gap between "Tier" and "Trade" -->
+        <g transform="translate(18, 0)">
+            <!-- T (for Trade) -->
+            <rect x="80" y="0" width="18" height="6" fill="white"/>
+            <rect x="86" y="6" width="6" height="30" fill="white"/>
+
+            <!-- r -->
+            <rect x="104" y="0" width="6" height="30" fill="white"/>
+            <rect x="110" y="0" width="12" height="6" fill="white"/>
+            <rect x="110" y="6" width="6" height="6" fill="white"/>
+            <rect x="116" y="12" width="6" height="6" fill="white"/>
+            <rect x="110" y="18" width="6" height="6" fill="white"/>
+            <rect x="116" y="24" width="6" height="6" fill="white"/>
+
+            <!-- a -->
+            <rect x="128" y="0" width="6" height="30" fill="white"/>
+            <rect x="134" y="0" width="6" height="6" fill="white"/>
+            <rect x="134" y="12" width="6" height="6" fill="white"/>
+            <rect x="140" y="0" width="6" height="30" fill="white"/>
+
+            <!-- d -->
+            <rect x="152" y="0" width="6" height="30" fill="white"/>
+            <rect x="158" y="0" width="12" height="6" fill="white"/>
+            <rect x="158" y="6" width="6" height="6" fill="white"/>
+            <rect x="158" y="12" width="6" height="6" fill="white"/>
+            <rect x="158" y="18" width="12" height="6" fill="white"/>
+            <rect x="164" y="6" width="6" height="12" fill="white"/>
+
+            <!-- e -->
+            <rect x="176" y="0" width="24" height="6" fill="white"/>
+            <rect x="176" y="6" width="6" height="6" fill="white"/>
+            <rect x="176" y="12" width="18" height="6" fill="white"/>
+            <rect x="176" y="18" width="6" height="6" fill="white"/>
+            <rect x="176" y="24" width="24" height="6" fill="white"/>
+        </g>
+    </g>
+</svg>

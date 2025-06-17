@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "Halloween",
+        "description": "Spooky and festive Halloween-themed items",
+        "season": "Autumn",
+        "color": "#FF6B35",
+        "isActive": true
+    },
+    {
+        "id": 2,
+        "name": "Christmas",
+        "description": "Festive holiday-themed items for the Christmas season",
+        "season": "Winter",
+        "color": "#DC2626",
+        "isActive": false
+    },
+    {
+        "id": 3,
+        "name": "Summer",
+        "description": "Bright and vibrant summer-themed items",
+        "season": "Summer",
+        "color": "#F59E0B",
+        "isActive": false
+    },
+    {
+        "id": 4,
+        "name": "Fantasy",
+        "description": "Magical and mystical fantasy-themed items",
+        "season": "All",
+        "color": "#8B5CF6",
+        "isActive": true
+    },
+    {
+        "id": 5,
+        "name": "Sci-Fi",
+        "description": "Futuristic and technological science fiction items",
+        "season": "All",
+        "color": "#06B6D4",
+        "isActive": true
+    },
+    {
+        "id": 6,
+        "name": "Classic",
+        "description": "Timeless and traditional styled items",
+        "season": "All",
+        "color": "#6B7280",
+        "isActive": true
+    }
+]

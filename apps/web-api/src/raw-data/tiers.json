@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "Basic",
+        "description": "Entry-level tier with standard features",
+        "priceMultiplier": 1.0,
+        "color": "#9CA3AF"
+    },
+    {
+        "id": 2,
+        "name": "Premium",
+        "description": "Enhanced tier with additional features",
+        "priceMultiplier": 1.5,
+        "color": "#3B82F6"
+    },
+    {
+        "id": 3,
+        "name": "Deluxe",
+        "description": "High-end tier with premium features",
+        "priceMultiplier": 2.0,
+        "color": "#8B5CF6"
+    },
+    {
+        "id": 4,
+        "name": "Ultimate",
+        "description": "Top-tier with all premium features included",
+        "priceMultiplier": 3.0,
+        "color": "#F59E0B"
+    }
+]

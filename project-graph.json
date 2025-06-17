@@ -1,0 +1,819 @@
+{
+  "graph": {
+    "nodes": {
+      "undefined": {
+        "name": "undefined",
+        "type": "lib",
+        "data": {
+          "root": "apps/web-api/src",
+          "targets": {
+            "lint": {
+              "cache": true,
+              "options": {
+                "cwd": "apps/web-api/src",
+                "command": "eslint ."
+              },
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/eslint.config.mjs",
+                "{workspaceRoot}/apps/web-api/eslint.config.mjs",
+                "{workspaceRoot}/tools/eslint-rules/**/*",
+                {
+                  "externalDependencies": [
+                    "eslint"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "metadata": {
+                "technologies": [
+                  "eslint"
+                ],
+                "description": "Runs ESLint on project",
+                "help": {
+                  "command": "pnpm exec eslint --help",
+                  "example": {
+                    "options": {
+                      "max-warnings": 0
+                    }
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "implicitDependencies": [],
+          "tags": []
+        }
+      },
+      "@tier-trade/web-client": {
+        "name": "@tier-trade/web-client",
+        "type": "lib",
+        "data": {
+          "root": "apps/web-client",
+          "targets": {
+            "build": {
+              "options": {
+                "cwd": "apps/web-client",
+                "tty": false,
+                "command": "next build"
+              },
+              "dependsOn": [
+                "^build"
+              ],
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production",
+                {
+                  "externalDependencies": [
+                    "next"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{workspaceRoot}/apps/web-client/.next/!(cache)/**/*",
+                "{workspaceRoot}/apps/web-client/.next/!(cache)"
+              ],
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "dev": {
+              "continuous": true,
+              "options": {
+                "cwd": "apps/web-client",
+                "command": "next dev"
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "start": {
+              "continuous": true,
+              "options": {
+                "cwd": "apps/web-client",
+                "command": "next start"
+              },
+              "dependsOn": [
+                "build"
+              ],
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "serve-static": {
+              "continuous": true,
+              "options": {
+                "cwd": "apps/web-client",
+                "command": "next start"
+              },
+              "dependsOn": [
+                "build"
+              ],
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "build-deps": {
+              "dependsOn": [
+                "^build"
+              ],
+              "configurations": {},
+              "options": {},
+              "parallelism": true,
+              "executor": "nx:noop"
+            },
+            "watch-deps": {
+              "continuous": true,
+              "dependsOn": [
+                "build-deps"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "pnpm exec nx watch --projects @tier-trade/web-client --includeDependentProjects -- pnpm exec nx build-deps @tier-trade/web-client"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "options": {
+                "cwd": "apps/web-client",
+                "env": {
+                  "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+                },
+                "command": "jest"
+              },
+              "metadata": {
+                "technologies": [
+                  "jest"
+                ],
+                "description": "Run Jest Tests",
+                "help": {
+                  "command": "pnpm exec jest --help",
+                  "example": {
+                    "options": {
+                      "coverage": true
+                    }
+                  }
+                }
+              },
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production",
+                "{workspaceRoot}\\jest.preset.js",
+                {
+                  "externalDependencies": [
+                    "jest"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{projectRoot}\\test-output\\jest\\coverage"
+              ],
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true,
+              "dependsOn": [
+                "^build"
+              ]
+            },
+            "lint": {
+              "cache": true,
+              "options": {
+                "cwd": "apps/web-client",
+                "command": "eslint ."
+              },
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/eslint.config.mjs",
+                "{workspaceRoot}/apps/web-client/eslint.config.mjs",
+                "{workspaceRoot}/tools/eslint-rules/**/*",
+                {
+                  "externalDependencies": [
+                    "eslint"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "metadata": {
+                "technologies": [
+                  "eslint"
+                ],
+                "description": "Runs ESLint on project",
+                "help": {
+                  "command": "pnpm exec eslint --help",
+                  "example": {
+                    "options": {
+                      "max-warnings": 0
+                    }
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "@tier-trade/web-client",
+          "tags": [
+            "npm:private"
+          ],
+          "metadata": {
+            "targetGroups": {},
+            "js": {
+              "packageName": "@tier-trade/web-client",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "implicitDependencies": []
+        }
+      },
+      "@tier-trade/web-api": {
+        "name": "@tier-trade/web-api",
+        "type": "app",
+        "data": {
+          "root": "apps/web-api",
+          "projectType": "application",
+          "targets": {
+            "typecheck": {
+              "dependsOn": [
+                "^typecheck"
+              ],
+              "options": {
+                "cwd": "apps/web-api",
+                "command": "tsc --build --emitDeclarationOnly"
+              },
+              "cache": true,
+              "inputs": [
+                "production",
+                "^production",
+                {
+                  "externalDependencies": [
+                    "typescript"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{projectRoot}/**/*.js",
+                "{projectRoot}/**/*.cjs",
+                "{projectRoot}/**/*.mjs",
+                "{projectRoot}/**/*.jsx",
+                "{projectRoot}/**/*.js.map",
+                "{projectRoot}/**/*.jsx.map",
+                "{projectRoot}/**/*.d.ts",
+                "{projectRoot}/**/*.d.cts",
+                "{projectRoot}/**/*.d.mts",
+                "{projectRoot}/**/*.d.ts.map",
+                "{projectRoot}/**/*.d.cts.map",
+                "{projectRoot}/**/*.d.mts.map",
+                "{projectRoot}/tsconfig.tsbuildinfo",
+                "{projectRoot}/dist/**/*.d.ts",
+                "{projectRoot}/dist/tsconfig.app.tsbuildinfo",
+                "{projectRoot}/out-tsc/jest/**/*.d.ts",
+                "{projectRoot}/out-tsc/jest/tsconfig.tsbuildinfo"
+              ],
+              "syncGenerators": [
+                "@nx/js:typescript-sync"
+              ],
+              "metadata": {
+                "technologies": [
+                  "typescript"
+                ],
+                "description": "Runs type-checking for the project.",
+                "help": {
+                  "command": "pnpm exec tsc --build --help",
+                  "example": {
+                    "args": [
+                      "--force"
+                    ]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "metadata": {
+                "technologies": [
+                  "jest"
+                ],
+                "description": "Run Jest Tests",
+                "help": {
+                  "command": "pnpm exec jest --help",
+                  "example": {
+                    "options": {
+                      "coverage": true
+                    }
+                  }
+                }
+              },
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production",
+                "{workspaceRoot}\\jest.preset.js",
+                {
+                  "externalDependencies": [
+                    "jest"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{projectRoot}\\test-output\\jest\\coverage"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "cwd": "apps/web-api",
+                "env": {
+                  "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+                },
+                "command": "jest",
+                "passWithNoTests": true
+              },
+              "configurations": {},
+              "parallelism": true,
+              "dependsOn": [
+                "^build"
+              ]
+            },
+            "lint": {
+              "cache": true,
+              "options": {
+                "cwd": "apps/web-api",
+                "command": "eslint ."
+              },
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/eslint.config.mjs",
+                "{workspaceRoot}/apps/web-api/eslint.config.mjs",
+                "{workspaceRoot}/tools/eslint-rules/**/*",
+                {
+                  "externalDependencies": [
+                    "eslint"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "metadata": {
+                "technologies": [
+                  "eslint"
+                ],
+                "description": "Runs ESLint on project",
+                "help": {
+                  "command": "pnpm exec eslint --help",
+                  "example": {
+                    "options": {
+                      "max-warnings": 0
+                    }
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "build": {
+              "options": {
+                "cwd": "apps/web-api",
+                "args": [
+                  "--node-env=production"
+                ],
+                "command": "webpack-cli build"
+              },
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "production",
+                "^production",
+                {
+                  "externalDependencies": [
+                    "webpack-cli"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{workspaceRoot}/apps\\web-api\\dist"
+              ],
+              "metadata": {
+                "technologies": [
+                  "webpack"
+                ],
+                "description": "Runs Webpack build",
+                "help": {
+                  "command": "pnpm exec webpack-cli build --help",
+                  "example": {
+                    "options": {
+                      "json": "stats.json"
+                    },
+                    "args": [
+                      "--profile"
+                    ]
+                  }
+                }
+              },
+              "syncGenerators": [
+                "@nx/js:typescript-sync"
+              ],
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "serve": {
+              "continuous": true,
+              "executor": "@nx/js:node",
+              "defaultConfiguration": "development",
+              "dependsOn": [
+                "build"
+              ],
+              "options": {
+                "buildTarget": "@tier-trade/web-api:build",
+                "runBuildTargetDependencies": false
+              },
+              "configurations": {
+                "development": {
+                  "buildTarget": "@tier-trade/web-api:build:development"
+                },
+                "production": {
+                  "buildTarget": "@tier-trade/web-api:build:production"
+                }
+              },
+              "parallelism": true
+            },
+            "preview": {
+              "continuous": true,
+              "options": {
+                "cwd": "apps/web-api",
+                "args": [
+                  "--node-env=production"
+                ],
+                "command": "webpack-cli serve"
+              },
+              "metadata": {
+                "technologies": [
+                  "webpack"
+                ],
+                "description": "Starts Webpack dev server in production mode",
+                "help": {
+                  "command": "pnpm exec webpack-cli serve --help",
+                  "example": {
+                    "options": {
+                      "args": [
+                        "--client-progress",
+                        "--history-api-fallback "
+                      ]
+                    }
+                  }
+                }
+              },
+              "syncGenerators": [
+                "@nx/js:typescript-sync"
+              ],
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "serve-static": {
+              "continuous": true,
+              "dependsOn": [
+                "build"
+              ],
+              "executor": "@nx/web:file-server",
+              "options": {
+                "buildTarget": "build",
+                "spa": true
+              },
+              "syncGenerators": [
+                "@nx/js:typescript-sync"
+              ],
+              "configurations": {},
+              "parallelism": true
+            },
+            "build-deps": {
+              "dependsOn": [
+                "^build"
+              ],
+              "configurations": {},
+              "options": {},
+              "parallelism": true,
+              "executor": "nx:noop"
+            },
+            "watch-deps": {
+              "continuous": true,
+              "dependsOn": [
+                "build-deps"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "pnpm exec nx watch --projects @tier-trade/web-api --includeDependentProjects -- pnpm exec nx build-deps @tier-trade/web-api"
+              },
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "metadata": {
+            "targetGroups": {},
+            "js": {
+              "packageName": "@tier-trade/web-api",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "name": "@tier-trade/web-api",
+          "tags": [
+            "npm:private"
+          ],
+          "implicitDependencies": []
+        }
+      },
+      "@tier-trade/ui": {
+        "name": "@tier-trade/ui",
+        "type": "lib",
+        "data": {
+          "root": "libs/ui",
+          "projectType": "library",
+          "targets": {
+            "typecheck": {
+              "dependsOn": [
+                "^typecheck"
+              ],
+              "options": {
+                "cwd": "libs/ui",
+                "command": "tsc --build --emitDeclarationOnly"
+              },
+              "cache": true,
+              "inputs": [
+                "production",
+                "^production",
+                {
+                  "externalDependencies": [
+                    "typescript"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{projectRoot}/**/*.js",
+                "{projectRoot}/**/*.cjs",
+                "{projectRoot}/**/*.mjs",
+                "{projectRoot}/**/*.jsx",
+                "{projectRoot}/**/*.js.map",
+                "{projectRoot}/**/*.jsx.map",
+                "{projectRoot}/**/*.d.ts",
+                "{projectRoot}/**/*.d.cts",
+                "{projectRoot}/**/*.d.mts",
+                "{projectRoot}/**/*.d.ts.map",
+                "{projectRoot}/**/*.d.cts.map",
+                "{projectRoot}/**/*.d.mts.map",
+                "{projectRoot}/tsconfig.tsbuildinfo",
+                "{projectRoot}/dist/**/*.d.ts",
+                "{projectRoot}/dist/tsconfig.lib.tsbuildinfo",
+                "{projectRoot}/out-tsc/jest/**/*.d.ts",
+                "{projectRoot}/out-tsc/jest/tsconfig.tsbuildinfo"
+              ],
+              "syncGenerators": [
+                "@nx/js:typescript-sync"
+              ],
+              "metadata": {
+                "technologies": [
+                  "typescript"
+                ],
+                "description": "Runs type-checking for the project.",
+                "help": {
+                  "command": "pnpm exec tsc --build --help",
+                  "example": {
+                    "args": [
+                      "--force"
+                    ]
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "test": {
+              "options": {
+                "cwd": "libs/ui",
+                "env": {
+                  "TS_NODE_COMPILER_OPTIONS": "{\"moduleResolution\":\"node10\",\"module\":\"commonjs\",\"customConditions\":null}"
+                },
+                "command": "jest"
+              },
+              "metadata": {
+                "technologies": [
+                  "jest"
+                ],
+                "description": "Run Jest Tests",
+                "help": {
+                  "command": "pnpm exec jest --help",
+                  "example": {
+                    "options": {
+                      "coverage": true
+                    }
+                  }
+                }
+              },
+              "cache": true,
+              "inputs": [
+                "default",
+                "^production",
+                "{workspaceRoot}\\jest.preset.js",
+                {
+                  "externalDependencies": [
+                    "jest"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{projectRoot}\\test-output\\jest\\coverage"
+              ],
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true,
+              "dependsOn": [
+                "^build"
+              ]
+            },
+            "lint": {
+              "cache": true,
+              "options": {
+                "cwd": "libs/ui",
+                "command": "eslint ."
+              },
+              "inputs": [
+                "default",
+                "^default",
+                "{workspaceRoot}/eslint.config.mjs",
+                "{workspaceRoot}/libs/ui/eslint.config.mjs",
+                "{workspaceRoot}/tools/eslint-rules/**/*",
+                {
+                  "externalDependencies": [
+                    "eslint"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "metadata": {
+                "technologies": [
+                  "eslint"
+                ],
+                "description": "Runs ESLint on project",
+                "help": {
+                  "command": "pnpm exec eslint --help",
+                  "example": {
+                    "options": {
+                      "max-warnings": 0
+                    }
+                  }
+                }
+              },
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "build": {
+              "options": {
+                "cwd": "libs/ui",
+                "command": "rollup -c rollup.config.cjs"
+              },
+              "cache": true,
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "production",
+                "^production",
+                {
+                  "externalDependencies": [
+                    "rollup"
+                  ]
+                }
+              ],
+              "outputs": [
+                "{workspaceRoot}/libs/ui/dist"
+              ],
+              "metadata": {
+                "technologies": [
+                  "rollup"
+                ],
+                "description": "Run Rollup",
+                "help": {
+                  "command": "pnpm exec rollup --help",
+                  "example": {
+                    "options": {
+                      "sourcemap": true,
+                      "watch": true
+                    }
+                  }
+                }
+              },
+              "syncGenerators": [
+                "@nx/js:typescript-sync"
+              ],
+              "executor": "nx:run-commands",
+              "configurations": {},
+              "parallelism": true
+            },
+            "build-deps": {
+              "dependsOn": [
+                "^build"
+              ],
+              "configurations": {},
+              "options": {},
+              "parallelism": true,
+              "executor": "nx:noop"
+            },
+            "watch-deps": {
+              "continuous": true,
+              "dependsOn": [
+                "build-deps"
+              ],
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "pnpm exec nx watch --projects @tier-trade/ui --includeDependentProjects -- pnpm exec nx build-deps @tier-trade/ui"
+              },
+              "configurations": {},
+              "parallelism": true
+            },
+            "nx-release-publish": {
+              "executor": "@nx/js:release-publish",
+              "dependsOn": [
+                "^nx-release-publish"
+              ],
+              "options": {},
+              "configurations": {},
+              "parallelism": true
+            }
+          },
+          "name": "@tier-trade/ui",
+          "tags": [
+            "npm:public"
+          ],
+          "metadata": {
+            "targetGroups": {},
+            "js": {
+              "packageName": "@tier-trade/ui",
+              "packageExports": {
+                "./package.json": "./package.json",
+                ".": {
+                  "development": "./src/index.ts",
+                  "types": "./src/index.ts",
+                  "import": "./src/index.ts",
+                  "default": "./src/index.ts"
+                }
+              },
+              "packageMain": "./src/index.ts",
+              "isInPackageManagerWorkspaces": true
+            }
+          },
+          "implicitDependencies": []
+        }
+      }
+    },
+    "dependencies": {
+      "undefined": [],
+      "@tier-trade/web-client": [
+        {
+          "source": "@tier-trade/web-client",
+          "target": "undefined",
+          "type": "static"
+        },
+        {
+          "source": "@tier-trade/web-client",
+          "target": "@tier-trade/ui",
+          "type": "static"
+        }
+      ],
+      "@tier-trade/web-api": [
+        {
+          "source": "@tier-trade/web-api",
+          "target": "undefined",
+          "type": "static"
+        }
+      ],
+      "@tier-trade/ui": [
+        {
+          "source": "@tier-trade/ui",
+          "target": "undefined",
+          "type": "static"
+        }
+      ]
+    }
+  }
+}

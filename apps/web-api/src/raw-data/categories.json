@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Mythic",
+        "description": "Legendary and rare items with mystical properties",
+        "color": "#8B5CF6"
+    },
+    {
+        "id": 2,
+        "name": "Epic",
+        "description": "High-quality items with exceptional features",
+        "color": "#F59E0B"
+    },
+    {
+        "id": 3,
+        "name": "Accessory",
+        "description": "Complementary items and add-ons",
+        "color": "#10B981"
+    },
+    {
+        "id": 4,
+        "name": "Common",
+        "description": "Standard items for everyday use",
+        "color": "#6B7280"
+    },
+    {
+        "id": 5,
+        "name": "Rare",
+        "description": "Uncommon items with special attributes",
+        "color": "#3B82F6"
+    },
+    {
+        "id": 6,
+        "name": "Legendary",
+        "description": "Ultimate tier items with extraordinary power",
+        "color": "#EF4444"
+    }
+]
