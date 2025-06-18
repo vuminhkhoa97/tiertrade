@@ -35,17 +35,9 @@ A modern, full-stack e-commerce marketplace platform built with Next.js and Expr
 - **Performance**: Server-side rendering (SSR) with Next.js
 - **Developer Experience**: Hot reloading, type checking, automated builds
 
-## ✨ Features
-
-### 🛍️ Product Marketplace
-
-- **Product Grid**: Responsive product display with card layouts
-- **Product Cards**: Rich product information with images and pricing
 
 ### 🎨 User Interface
-
 - **Dark/Light Theme**: Toggle between dark and light modes
-- **Responsive Design**: Mobile-first design that works on all devices
 - **Modern UI**: Clean, professional interface with Tailwind CSS
 - **Loading States**: Skeleton loading for better user experience
 
